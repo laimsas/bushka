@@ -15,9 +15,9 @@ from django.views import generic
 
 class WeaponListView(generic.ListView):
     model = Weapon
-    context_object_name = 'weapon_list'
+    context_object_name = 'index'
     # paginate_by = 2
-    template_name = 'bushka_site/weapon_list.html'
+    template_name = 'bushka_site/index.html'
 
 
 def show_recoil():
@@ -30,5 +30,5 @@ def show_recoil():
     return encoded_file
 
 
-# def weapon_list(request):
-#     return render(request, 'bushka_site/weapon_list')
+def index(request):
+    return render(request, 'bushka_site/index.html')
