@@ -61,5 +61,5 @@ def register(request):
         else:
             User.objects.create_user(username=username, email=email, password=password)
             messages.success(request, _('Vartotojas {} užregistruotas sėkmingai. Galite prisijungti').format(username))
-            return redirect('index')
+            return redirect('bushka_site:index')
     return render(request, 'user_profile/register.html')

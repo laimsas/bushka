@@ -13,8 +13,7 @@ from django.conf import settings
 
 
 def show_recoil():
-    df = pd.read_excel(r'C:\Users\Laimsas\Documents\pythonptu1\bushka\bushka\bushka\bushka_site\static\bushka_site\recoil_multi.xlsx', index_col=0)
-    recoil = sns.scatterplot(data = df, x = 'groza_X', y = 'groza_Y')
+    df = pd.read_excel(settings.BASE_DIR.joinpath('bushka_site/static/bushka_site/recoil_multi.xlsx'), index_col=0)    recoil = sns.scatterplot(data = df, x = 'groza_X', y = 'groza_Y')
     fig = recoil.figure
     recoil_file = BytesIO() 
     fig.savefig(recoil_file, format='png')
