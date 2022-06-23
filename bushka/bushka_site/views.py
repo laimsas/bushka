@@ -6,10 +6,18 @@ import openpyxl
 from io import BytesIO
 import base64
 from django.conf import settings
+from .models import Weapon, Categorie
+from django.views import generic
+
 
 # Create your views here.
 
 
+class WeaponListView(generic.ListView):
+    model = Weapon
+    context_object_name = 'weapon_list'
+    # paginate_by = 2
+    template_name = 'bushka_site/weapon_list.html'
 
 
 def show_recoil():
@@ -21,5 +29,6 @@ def show_recoil():
     encoded_file = base64.b64encode(recoil_file.getvalue())
     return encoded_file
 
-def index(request):
-    return render(request, 'bushka_site/show_recoil.html',{'show_recoil':show_recoil().decode('utf-8')})
+
+# def weapon_list(request):
+#     return render(request, 'bushka_site/weapon_list')

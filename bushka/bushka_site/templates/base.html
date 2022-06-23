@@ -20,7 +20,7 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">{% block navigation %}
-                    <li class="nav-item"><a class="nav-link" href="{% url 'bushka_site:index' %}">Pradžia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'bushka_site:weapon_list' %}">Pradžia</a></li>
                 {% endblock navigation %}</ul>
                 <!-- User menu -->
                 <ul class="navbar-nav">
@@ -35,7 +35,7 @@
                                 <a class="dropdown-item" href="{% url 'admin:index' %}">{% trans "admin"|capfirst %}</a>
                             {% endif %}
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{% url 'logout' %}?next={% url 'bushka_site:index' %}">&#128682; {% trans "logout"|capfirst %}</a>
+                            <a class="dropdown-item" href="{% url 'logout' %}?next={% url 'bushka_site:weapon_list' %}">&#128682; {% trans "logout"|capfirst %}</a>
                         </div>
                     </li>                
                     {% else %}
