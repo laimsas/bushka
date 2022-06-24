@@ -8,6 +8,7 @@ import base64
 from django.conf import settings
 from .models import Weapon, Categorie
 from django.views import generic
+from django.views.generic.detail import DetailView
 
 
 # Create your views here.
@@ -15,9 +16,15 @@ from django.views import generic
 
 class WeaponListView(generic.ListView):
     model = Weapon
-    context_object_name = 'index'
+    context_object_name = 'weapon_list'
     # paginate_by = 2
     template_name = 'bushka_site/index.html'
+
+
+class WeaponDetailView(generic.DetailView):
+    model = Weapon
+    template_name = 'bushka_site/weapon_detail_view.html'
+
 
 
 def show_recoil():
