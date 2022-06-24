@@ -1,33 +1,27 @@
 {% extends "base.html" %}
-
 {% block content %}
   <h1>weapons</h1>
   {% if weapon_list %}
-  <ul>
-    {% for weapon in weapon_list %}
-      <li>
-        <a href="{{ weapon.id }}">{{ weapon.name }}</a>
-      </li>
+  <div class="card-group">
+  {% for weapon in weapon_list %}
+    <div class="card">
+      <img src="{{ weapon.image.url }}" class="card-img-top" alt="weapon"/>
+      <div class="card-body">
+        <h5 class="card-title">{{ weapon.name }}</h5>
+        <p class="card-text">
+          {{ weapon.description }}
+        </p>
+        <p class="card-text">
+          <small class="text-muted">Last updated 3 mins ago</small>
+        </p>
+      </div>
+    </div>
+        </p>
+      </div>
     {% endfor %}
   </ul>
   {% else %}
     <p>List is empty</p>
   {% endif %}
-  <div class="pagination">
-    <span class="step-links">
-        {% if page_obj.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ page_obj.previous_page_number }}">back</a>
-        {% endif %}
-
-        <span class="current">
-            {{ page_obj.number }} from {{ page_obj.paginator.num_pages }}
-        </span>
-
-        {% if page_obj.has_next %}
-            <a href="?page={{ page_obj.next_page_number }}">forward</a>
-            <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
-        {% endif %}
-    </span>
 </div>       
-{% endblock %}
+{% endblock content %}
