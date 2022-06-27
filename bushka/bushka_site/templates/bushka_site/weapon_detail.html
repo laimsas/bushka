@@ -2,10 +2,15 @@
 {% load static %}
 {% block content %}
 <div class="container py-3">
+    <li>
+        <a href="{% url 'weapon_detail' weapon.id %}">{{ weapon.name }}</a> 
+        
+    </li>
     <h1>{{ weapon.name }}</h1>
     <a href="{% url 'weapon' weapon.name.id %}"><h2>{{ weapon.description }}</h2></a>
     
-{% if weapon.image %}
+
+    {% if weapon.image %}
     <img style="max-width: 400px;" class="img-fluid img-thumbnail float-right ml-3" src="{{ weapon.image.url }}">
 {% else %}
     <img style="max-width: 400px;" class="img-fluid img-thumbnail float-right ml-3" src="{% static 'bushka_site/img/LaimisLaimukas.jpg' %}">
