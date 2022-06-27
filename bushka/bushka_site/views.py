@@ -9,6 +9,9 @@ from django.conf import settings
 from .models import Weapon, Categorie
 from django.views import generic
 from django.views.generic.detail import DetailView
+from django.urls import reverse, reverse_lazy
+from django.views.generic.edit import FormMixin
+from django.http import HttpResponse
 
 
 # Create your views here.
@@ -16,14 +19,23 @@ from django.views.generic.detail import DetailView
 
 class WeaponListView(generic.ListView):
     model = Weapon
-    context_object_name = 'weapon_list'
+    # context_object_name = 'weapon_list'
     # paginate_by = 2
     template_name = 'bushka_site/index.html'
 
 
 class WeaponDetailView(generic.DetailView):
     model = Weapon
-    template_name = 'bushka_site/weapon_detail_view.html'
+    template_name = 'bushka_site/weapon_detail.html'
+
+
+def weapon_compare(request):
+    if request.method == 'POST':
+        checked = request.POST.getlist('weapon_checkbox[]')
+    # return render(request, 'validate.html', {'hobbies':hobbies})
+    print(checked)
+
+    
 
 
 
