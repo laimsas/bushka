@@ -32,7 +32,7 @@ class WeaponDetailView(generic.DetailView):
 def weapon_compare(request):
     if request.method == 'POST':
         checked = request.POST.getlist('weapon_checkbox[]')
-    # return render(request, 'validate.html', {'hobbies':hobbies})
+    return render(request, 'weapon_compare.html')
     print(checked)
 
     
