@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>weapons</h1>
-  {% if weapon_list %}
-  <div class="card-group">
-    
-    {% for weapon in weapon_list %}
-    <div class="row">
+  <button type="button"  href="#" class="btn btn-sm btn-primary">Compare</button>
+
+{% if weapon_list %}
+<div class="card-deck">
+  
+  {% for weapon in weapon_list %}
+  <div class="row">
     <div class="card" style="width:200px">
       <img src="{{ weapon.image.url }}" class="card-img-top" style="width:150px" alt="weapon"/>
       <div class="card-body">
@@ -16,6 +18,7 @@
         <p class="card-text">
           <input class="form-check-input" type="checkbox" name='weapon_checkbox' value="{{ weapon.id }}" id="weapon">
           <label class="form-check-label" for="weapon">Compare</label>
+          <button type="button"  href="{# url 'weapon_detail' weapon.id #}" class="btn btn-sm btn-primary">More</button>
         </p>
       </div>
     </div>
