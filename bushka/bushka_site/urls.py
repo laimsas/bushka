@@ -5,7 +5,7 @@ from . import views
 app_name = 'bushka_site'
 urlpatterns = [
     path('', views.WeaponListView.as_view(), name='index'),
-    path('weapon_detail<int:pk>/', views.WeaponDetailView.as_view(), name = 'weapon_detail'),
+    path('weapon_detail/<int:pk>/', views.WeaponDetailView.as_view(), name = 'weapon_detail'),
     path('show_recoil/', views.show_recoil, name='show_recoil'),
-    path('weapon_compare/', views.weapon_compare, name='weapon compare'),
+    path('weapon_compare/<int:pk[a, b]/', views.WeaponDetailView.as_view(), name='weapon compare'),
 ]

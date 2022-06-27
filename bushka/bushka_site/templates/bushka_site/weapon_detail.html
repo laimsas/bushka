@@ -3,11 +3,11 @@
 {% block content %}
 <div class="container py-3">
     <li>
-        <a href="{% url 'weapon_detail' weapon.id %}">{{ weapon.name }}</a> 
+        <a {{ weapon.name }}</a> 
         
     </li>
     <h1>{{ weapon.name }}</h1>
-    <a href="{% url 'weapon' weapon.name.id %}"><h2>{{ weapon.description }}</h2></a>
+    <a><h2>{{ weapon.description }}</h2></a>
     
 
     {% if weapon.image %}
