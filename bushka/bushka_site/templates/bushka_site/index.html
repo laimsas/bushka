@@ -1,12 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>weapons</h1>
-  <a  href="{# url 'bushka_site:weapons_compare' weapon.id #}" class="btn btn-sm btn-primary">Compare</a>
+  <a  href="{% url 'weapons_compare' weapon.id %}" class="btn btn-sm btn-primary">Compare</a>
 
 
 {% if weapon_list %}
-<div class="card-deck">
-  
+<form method = 'post' action = "{% url 'weapons_compare' %}">
+  {% csrf_token %}
+<div class="card-deck">  
   {% for weapon in weapon_list %}
   <div class="row">
     <div class="card" style="width:200px">
