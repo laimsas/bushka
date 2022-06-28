@@ -7,5 +7,5 @@ urlpatterns = [
     path('', views.WeaponListView.as_view(), name='index'),
     path('weapon_detail/<int:pk>/', views.WeaponDetailView.as_view(), name = 'weapon_detail'),
     path('show_recoil/', views.show_recoil, name='show_recoil'),
-    path('weapon_compare/<int:pk[a, b]/', views.WeaponDetailView.as_view(), name='weapon compare'),
+    path('weapons_compare/', views.weapons_compare, name='weapons_compare'),
 ]

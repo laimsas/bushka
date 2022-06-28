@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
   <h1>weapons</h1>
-  <a  href="{% url 'bushka_site:weapon_compare' weapon.id %}" class="btn btn-sm btn-primary">Compare</a>
+  <a  href="{# url 'bushka_site:weapons_compare' weapon.id #}" class="btn btn-sm btn-primary">Compare</a>
 
 
 {% if weapon_list %}
