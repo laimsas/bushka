@@ -1,5 +1,33 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-{{weapons}}
+{% if weapon_list %}
+<div class="card-deck">
+  
+  {% for weapon in weapon_list %}
+  <div class="row">
+    <div class="card" style="width:200px">
+      <img src="{{ weapon.image.url }}" class="card-img-top" style="width:150px" alt="weapon"/>
+      <div class="card-body">
+        <h5 class="card-title">{{ weapon.name }}</h5>
+        <p class="card-text">
+          {{ weapon.description }}
+        </p>
+        <p class="card-text">
+          <a  href="{% url 'bushka_site:weapon_detail' weapon.id %}" class="btn btn-sm btn-primary">More</a>
+        </p>
+      </div>
+    </div>
+        </p>
+      </div>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>List is empty</p>
+  {% endif %}
+</div>  
+
+</div>
+
+
 {% endblock content %}
