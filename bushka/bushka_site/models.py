@@ -32,7 +32,6 @@ class Weapon(models.Model):
     image = models.ImageField(_('image'), upload_to='bushka_site/img', null=True, blank=True)
     categorie = models.ForeignKey(Categorie, on_delete=models.SET_NULL, null=True, related_name='weapons', verbose_name=_('weapon'))
 
-
     def __str__(self):
         return f'{str(self.name)} - {self.description} - {self.categorie}'
 

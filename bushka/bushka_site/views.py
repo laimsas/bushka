@@ -14,9 +14,6 @@ from django.views.generic.edit import FormMixin
 from django.http import HttpResponse
 
 
-# Create your views here.
-
-
 class WeaponListView(generic.ListView):
     model = Weapon
     # context_object_name = 'weapon_list'
@@ -39,7 +36,6 @@ class WeaponDetailView(generic.DetailView):
     model = Weapon
     template_name = 'bushka_site/weapon_detail.html'
 
-
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['show_recoil'] = show_recoil(self.get_object()).decode('utf-8')
@@ -49,14 +45,13 @@ class WeaponDetailView(generic.DetailView):
 def weapons_compare(request):
     if request.method == 'POST':
         checked = request.POST.getlist('weapon_checkbox')
-        weapons = Weapon.objects.filter(id__in = checked)
-        
+        weapons = Weapon.objects.filter(id__in = checked)        
     else:
         checked = None
         weapons = None
-
     return render(request, 'bushka_site/weapons_compare.html', {'weapons':weapons, 'checked' : checked})
 
 
 def index(request):
     return render(request, 'bushka_site/index.html')
+    
