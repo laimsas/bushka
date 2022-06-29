@@ -22,6 +22,7 @@ class WeaponListView(generic.ListView):
 
 
 def show_recoil(weapon):
+    plt.use('Agg')
     df = pd.read_excel(settings.BASE_DIR.joinpath('bushka_site/static/bushka_site/recoil_multi.xlsx'), index_col=0)
     recoil = sns.scatterplot(data = df, x = weapon.recoil_x, y = weapon.recoil_y, legend='full')
     fig = recoil.figure
@@ -54,4 +55,3 @@ def weapons_compare(request):
 
 def index(request):
     return render(request, 'bushka_site/index.html')
-    
