@@ -2,6 +2,7 @@
 {% load static %}
 {% block content %}
 {% if weapons %}
+<div class = "container">
 <div class="card-deck">
   {% for weapon in weapons %}
   <div class="row">
@@ -27,7 +28,7 @@
     <p>List is empty</p>
   {% endif %}
 </div>  
-
+</div>
 </div>
 
 

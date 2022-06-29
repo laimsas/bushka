@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
-  <h1>weapons</h1>
+<div class='container'>
+<h1>weapons</h1>
 
 {% if weapon_list %}
 <form method = 'post' action = "{% url 'bushka_site:weapons_compare' %}" >
@@ -8,7 +9,7 @@
   {% csrf_token %}
 <div class="card-deck">  
   {% for weapon in weapon_list %}
-  <div class="row">
+  <div class="row" col-4>
     <div class="card" style="width:200px">
       <img src="{{ weapon.image.url }}" class="card-img-top" style="width:150px" alt="weapon"/>
       <div class="card-body">
@@ -31,7 +32,7 @@
     <p>List is empty</p>
   {% endif %}
 </div>  
-
+</div>
 </div>
 
 {% endblock content %}
